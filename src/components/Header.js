@@ -37,7 +37,7 @@ export default function Header(){
 function HamModal () {
   return (
     <>
-    {/* <div className='triangle'></div> */}
+    <div className='triangle'></div>
     <div className="modal">
       <div className="modalList">OOO님, 안녕하세요!</div>
       <div className="division-line"></div>
