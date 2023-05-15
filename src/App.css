@@ -3,6 +3,9 @@
   Padding: 0;
   Box-sizing: border-box;
 }
+#Hamberger{
+  cursor: pointer;
+}
 
 header {
   display: flex;
@@ -25,21 +28,27 @@ header {
 
 .modalList{
   padding-left: 32px;
+  display: flex;
+  gap: 8px;
 }
 
-/* .triangle {
-  background-color: aqua;
-  width: 16px;
+.triangle {
+  background-color: rgb(255, 255, 255);
+  width: 18px;
   height: 18px;
   position: absolute;
   right: 87px;
-  top: 51px;
-} */
+  top: 61px;
+  transform: rotate(45deg);
+  box-shadow: -5px -4px 8px -3px rgb(186, 186, 186);
+  z-index: 2;
+}
 
 .modal {
   background-color: white;
   border-radius: 15px;
   box-shadow: 0 0 10px rgb(186, 186, 186);
+  z-index: 1;
 
   justify-content: space-evenly;
   text-align: left;

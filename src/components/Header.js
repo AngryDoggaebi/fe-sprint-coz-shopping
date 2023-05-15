@@ -20,7 +20,7 @@ export default function Header(){
         <CozShopping/> 
       </div>
       
-      <div onClick={ () => { modal === true ? setModal(false) : setModal(true)} }>
+      <div id="Hamberger" onClick={ () => { modal === true ? setModal(false) : setModal(true)} }>
         <Hamberger/>
       </div>
       
@@ -46,9 +46,6 @@ function HamModal () {
       <div className="modalList"><StarIcon/> 북마크 페이지</div>
     </div>
     </>
-    
-
-
 
   );
 }
