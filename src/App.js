@@ -1,6 +1,8 @@
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import MainProducts from './components/MainProducts';
 
 
 function App() {
@@ -10,7 +12,7 @@ function App() {
 
       <div id='wrapper'>
         <div>
-          content
+          <MainProducts/>
         </div>
       </div>
 
