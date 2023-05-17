@@ -12,7 +12,7 @@ export default function MainProducts ({ products }) {
 
   return (
     <section id="wrapper">
-      <button onClick={()=>{ console.log(products[1]) }}>버튼</button>
+      <button onClick={()=>{ console.log(Number(products[1].price).toLocaleString()) }}>버튼</button>
 
       <Section>
       <ItemCard newArr={newArr}/>

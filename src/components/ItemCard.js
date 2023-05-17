@@ -39,7 +39,11 @@ export default function ItemCard ({ newArr }) {
         </ProductInfo>
 
         <ProductInfo>
-          <Info id='thirdInfo'>{ v.follower ?  v.follower : v.price ? `${ v.price }원` : '' }</Info>
+          <Info id='thirdInfo'>
+            { v.follower ?  Number(v.follower).toLocaleString() 
+              : v.price ? `${ Number(v.price).toLocaleString() }원` : '' 
+            }
+          </Info>
         </ProductInfo>
 
       </Card>
