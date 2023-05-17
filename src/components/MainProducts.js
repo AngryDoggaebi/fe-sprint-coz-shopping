@@ -5,6 +5,10 @@ let Section = styled.section`
   flex-flow: row;
   justify-content: space-around;
 `
+let H2 = styled.h2`
+  display: flex;
+  margin-left: 76px;
+`
 
 export default function MainProducts ({ products }) {
 
@@ -12,6 +16,8 @@ export default function MainProducts ({ products }) {
   return (
     <section id="wrapper">
       <button onClick={()=>{ console.log(products[1]) }}>버튼</button>
+
+      <H2>상품 리스트</H2>
 
       <Section>
       <p>{ products[0].title }</p>
