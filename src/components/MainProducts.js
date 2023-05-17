@@ -1,19 +1,31 @@
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import styled from "styled-components"
+import ItemCart from "./ItemCard"
+
+let Section = styled.section`
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+`
 
 export default function MainProducts ({ products }) {
   
 
   return (
+    <section id="wrapper">
+      <button onClick={()=>{ console.log(products[1]) }}>버튼</button>
+
+      <Section>
+      <p>{ products[0].title }</p>
+      <p>{ products[1].title }</p>
+      <p>{ products[2].brand_name  }</p>
+      <p>{ products[3].title }</p>
+      </Section>
+
+      <ItemCart products={products}/>
     
-    <Container>
-      <Row>
-        <Col sm>{ products[0].title }</Col>
-        <Col sm>{ products[1].title }</Col>
-        <Col sm>{ products[2].brand_name }</Col>
-        <Col sm>{ products[3].title }</Col>
-      </Row>
-    </Container>
+    </section>
+    
+    
+    
   )
 }
