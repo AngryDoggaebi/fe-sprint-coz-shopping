@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import ItemCard from "./ItemCard";
 
 let Section = styled.section`
   display: flex;
