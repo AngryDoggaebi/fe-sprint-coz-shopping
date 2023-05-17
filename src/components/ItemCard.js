@@ -21,21 +21,24 @@ let Card = styled.div`
 `
 
 
-export default function ItemCard ({ products }) {
+export default function ItemCard ({ newArr }) {
   
-  return (
-    <Card>
-      <ProductImg src={ products[0].image_url }/>
-      <ProductInfo jc="space-between">
-        <Title>{ products[0].title }</Title>
-        <p id="subInfo">{ products[0].discountPercentage }</p>
-      </ProductInfo>
-      <ProductInfo>
-        <p id='thirdInfo'>{ products[0].price }</p>
-      </ProductInfo>
-      
 
-    </Card>
-    
-  );
+  return newArr.map((v) => {
+    return (
+      <Card key={v.id}>
+        <ProductImg src={ v.brand_image_url ? v.brand_image_url : v.image_url }/>
+        <ProductInfo jc="space-between">
+          <Title>{ v.brand_name ? v.brand_name : v.title }</Title>
+          <p id="subInfo">{ v.follower ? '관심고객수' : v.discountPercentage }</p>
+        </ProductInfo>
+        <ProductInfo>
+          <p id='thirdInfo'>{ v.follower ?  v.follower : v.price}</p>
+        </ProductInfo>
+
+      </Card>
+      
+    );
+  })
+  
 }

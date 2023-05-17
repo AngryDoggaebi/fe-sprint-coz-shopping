@@ -8,7 +8,7 @@ let Section = styled.section`
 `
 
 export default function MainProducts ({ products }) {
-  
+
 
   return (
     <section id="wrapper">
