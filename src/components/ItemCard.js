@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled from "styled-components"
 
 let ProductImg = styled.img`
@@ -10,30 +11,35 @@ let ProductInfo = styled.section`
   display: flex;
   flex-flow: row;
   justify-content: ${ props => props.jc || 'end' };
-
-`
-let Title = styled.p`
-  font-weight: bold;
+  font-weight: ${ props => props.fw || 'normal' };
 `
 let Card = styled.div`
   width: 264px;
   height: 210px;
 `
+let Info = styled.p`
+  color: ${ props => props.fontColor || 'black'};
+  font-size: 15px;
+`
 
 
-export default function ItemCard ({ newArr }) {
-  
+export default function ItemCard ({ newArr }) {  
 
   return newArr.map((v) => {
     return (
       <Card key={v.id}>
+
         <ProductImg src={ v.brand_image_url ? v.brand_image_url : v.image_url }/>
-        <ProductInfo jc="space-between">
-          <Title>{ v.brand_name ? v.brand_name : v.title }</Title>
-          <p id="subInfo">{ v.follower ? '관심고객수' : v.discountPercentage }</p>
+
+        <ProductInfo jc="space-between" fw="bold">
+          <Info>{ v.brand_name ? v.brand_name : v.title }</Info>
+          <Info id="subInfo" fontColor='#452CDD'>{ 
+            v.follower ? '관심고객수' : v.discountPercentage ? `${ v.discountPercentage }%` : '' }
+          </Info>
         </ProductInfo>
+
         <ProductInfo>
-          <p id='thirdInfo'>{ v.follower ?  v.follower : v.price}</p>
+          <Info id='thirdInfo'>{ v.follower ?  v.follower : v.price ? `${ v.price }원` : '' }</Info>
         </ProductInfo>
 
       </Card>
