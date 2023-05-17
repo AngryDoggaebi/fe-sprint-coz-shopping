@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import ItemCard from "./ItemCard"
 
 let Section = styled.section`
   display: flex;
@@ -19,6 +20,8 @@ export default function MainProducts ({ products }) {
       <p>{ products[2].brand_name  }</p>
       <p>{ products[3].title }</p>
       </Section>
+
+      <ItemCard products={products}/>
     
     </section>
     
