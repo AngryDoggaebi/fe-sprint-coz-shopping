@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import ItemCard from "./ItemCard";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ImageModal from "./ImageModal";
 
 let H2 = styled.h2`
   display: flex;
@@ -20,6 +21,8 @@ let Section = styled.section`
 export default function MainProducts ({ products }) {
   let newArr = products.filter(v => products.indexOf(v) < 4);
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
+  let [modal, setModal] = useState(false);
+  let [imageUrl, setImageUrl] = useState('');
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -28,10 +31,14 @@ export default function MainProducts ({ products }) {
   return (
     <section id="wrapper">
 
+      {
+      modal ? <ImageModal imageUrl={ imageUrl } setModal={ setModal }/> : null
+      }
+
       <H2>상품 리스트</H2>
 
       <Section>
-      <ItemCard newArr={newArr}/>
+      <ItemCard newArr={newArr} modal={modal} setModal={setModal} setImageUrl={setImageUrl}/>
       </Section>
     
     </section>

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import StarIconGrey from "../img/StarIcon_Grey"
+import StarIconGray from "../img/StarIcon_Gray"
 import { useEffect, useState } from "react"
 import StarIcon from "../img/StarIcon"
 
@@ -32,7 +32,7 @@ let Star = styled.i`
 `
 
 
-export default function ItemCard ({ newArr }) {  
+export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {  
 
   let [bookmarks, setBookmarks] = useState(
     localStorage.getItem('bookmark')
@@ -48,18 +48,26 @@ export default function ItemCard ({ newArr }) {
     return (
       <Card key={v.id}>
 
-        <ProductImg src={ v.brand_image_url ? v.brand_image_url : v.image_url }/>
+        <ProductImg 
+          src={ v.brand_image_url ? v.brand_image_url : v.image_url }
+          onClick={()=>{
+              modal 
+              ? setModal(false) 
+              : setModal(true);
+
+              v.brand_image_url ? setImageUrl(v.brand_image_url) : setImageUrl(v.image_url);
+          }}
+        />
         
         <Star onClick={()=>{ 
           let copy = [...bookmarks];
           bookmarks.filter(x => x.id === v.id).length !== 0  
           ? setBookmarks(copy.filter(x => x.id !== v.id))
-          : setBookmarks([...bookmarks, v])
-          
+          : setBookmarks([...bookmarks, v]) 
         }}>
           { 
             bookmarks.filter(x => x.id === v.id).length !== 0  
-            ? <StarIcon/> : <StarIconGrey/> 
+            ? <StarIcon/> : <StarIconGray/> 
           }
         </Star>
 
