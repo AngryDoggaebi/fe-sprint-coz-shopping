@@ -48,7 +48,6 @@ export default function ImageModal({ imageUrl, setModal, newArr }){
     
     <Parent onClick={ ()=>{ setModal(false) } }>
       <Children>
-        
         <Title>{info[0].title ? info[0].title : info[0].brand_name}</Title>
         <ModalImg src={ imageUrl }/>
       </Children>  

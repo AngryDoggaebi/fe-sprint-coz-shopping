@@ -18,11 +18,9 @@ let Section = styled.section`
   margin-top: 10px;
 `
 
-export default function MainProducts ({ products }) {
+export default function MainProducts ({ products, modal, setModal, imageUrl, setImageUrl }) {
   let newArr = products.filter(v => products.indexOf(v) < 4);
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
-  let [modal, setModal] = useState(false);
-  let [imageUrl, setImageUrl] = useState('');
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
