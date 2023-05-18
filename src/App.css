@@ -30,6 +30,8 @@ header {
   padding-left: 32px;
   display: flex;
   gap: 8px;
+  text-decoration: none;
+  color: black;
 }
 
 .triangle {
