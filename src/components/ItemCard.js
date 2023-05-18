@@ -34,7 +34,11 @@ left: 228px;
 
 export default function ItemCard ({ newArr }) {  
 
-  let [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmark')));
+  let [bookmarks, setBookmarks] = useState(
+    localStorage.getItem('bookmark')
+    ? JSON.parse(localStorage.getItem('bookmark'))
+    : []
+  );
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -47,7 +51,11 @@ export default function ItemCard ({ newArr }) {
         <ProductImg src={ v.brand_image_url ? v.brand_image_url : v.image_url }/>
 
         <Star onClick={()=>{ 
-          setBookmarks([...bookmarks, v]);
+          let copy = [...bookmarks];
+          bookmarks.filter(x => x.id === v.id).length !== 0  
+          ? setBookmarks(copy.filter(x => x.id !== v.id))
+          : setBookmarks([...bookmarks, v])
+          
         }}>
           { bookmarks.filter(x => x.title === v.title) ? <StarIcon/> : <StarIcon_grey/> }
         </Star>
