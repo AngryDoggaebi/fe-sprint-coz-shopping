@@ -57,7 +57,10 @@ export default function ItemCard ({ newArr }) {
           : setBookmarks([...bookmarks, v])
           
         }}>
-          { bookmarks.filter(x => x.title === v.title) ? <StarIcon/> : <StarIcon_grey/> }
+          { 
+            bookmarks.filter(x => x.id === v.id).length !== 0  
+            ? <StarIcon/> : <StarIcon_grey/> 
+          }
         </Star>
 
         <ProductInfo jc="space-between" fw="bold">
