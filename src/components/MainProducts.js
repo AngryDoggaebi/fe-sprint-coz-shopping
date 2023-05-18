@@ -1,5 +1,7 @@
 import styled from "styled-components"
 import ItemCard from "./ItemCard";
+import { useEffect } from "react";
+
 
 let Section = styled.section`
   display: flex;
@@ -13,6 +15,11 @@ let H2 = styled.h2`
 
 export default function MainProducts ({ products }) {
   let newArr = products.filter(v => products.indexOf(v) < 4);
+  let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
+
+  useEffect(()=>{
+    localStorage.setItem('bookmark', JSON.stringify(bookmarks));
+  })
 
   return (
     <section id="wrapper">

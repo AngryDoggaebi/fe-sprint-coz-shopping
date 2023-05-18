@@ -4,7 +4,7 @@ import exhibitionImg from '../img/exhibition.png';
 import productImg from '../img/product.png';
 import allImg from '../img/all.png';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ItemCard from '../components/ItemCard';
 
 let Img = styled.img`
@@ -54,6 +54,12 @@ export default function ProductList ({ products }) {
     { 'title': '기획전', 'img': exhibitionImg, 'filter': [...products].filter(v => v.type === 'Exhibition')}, 
     { 'title': '브랜드', 'img': brandImg, 'filter': [...products].filter(v => v.type === 'Brand')}
   ];
+
+  let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
+
+  useEffect(()=>{
+    localStorage.setItem('bookmark', JSON.stringify(bookmarks));
+  })
   
   return(
     <div id='wrapper'>

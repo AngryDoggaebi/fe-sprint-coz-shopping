@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import ItemCard from "../components/ItemCard"
 import styled from "styled-components"
 
@@ -17,7 +17,10 @@ let Section = styled.section`
 
 export default function Bookmark ( ) {
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
-  console.log(bookmarks)
+
+  useEffect(()=>{
+    localStorage.setItem('bookmark', JSON.stringify(bookmarks));
+  })
 
   return (
     <div id='wrapper'>

@@ -34,7 +34,7 @@ left: 228px;
 
 export default function ItemCard ({ newArr }) {  
 
-  let [bookmarks, setBookmarks] = useState([]);
+  let [bookmarks, setBookmarks] = useState(JSON.parse(localStorage.getItem('bookmark')));
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
