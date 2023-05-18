@@ -10,8 +10,8 @@ let Section = styled.section`
   flex-wrap: wrap;
   margin-left: 127px;
   margin-right: 127px;
-  gap: 66px 48px;
-  margin-top: 26.5px;
+  gap: 30px 48px;
+  margin-top: 70px;
   margin-bottom: 78px;
 `
 

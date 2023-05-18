@@ -39,7 +39,7 @@ let Section = styled.section`
   flex-wrap: wrap;
   margin-left: 127px;
   margin-right: 127px;
-  gap: 60px 48px;
+  gap: 30px 48px;
   margin-top: 26.5px;
   margin-bottom: 78px;
 `
