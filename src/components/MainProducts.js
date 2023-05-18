@@ -32,7 +32,7 @@ export default function MainProducts ({ products }) {
     <section id="wrapper">
 
       {
-      modal ? <ImageModal imageUrl={ imageUrl } setModal={ setModal }/> : null
+      modal ? <ImageModal imageUrl={ imageUrl } setModal={ setModal } newArr={newArr}/> : null
       }
 
       <H2>상품 리스트</H2>
