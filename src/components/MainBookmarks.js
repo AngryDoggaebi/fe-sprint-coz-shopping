@@ -15,11 +15,12 @@ let Section = styled.section`
   margin-right: 127px;
   gap: 66px 48px;
   margin-top: 10px;
+  margin-bottom: 78px;
 `
 
-export default function MainProducts ({ products }) {
-  let newArr = products.filter(v => products.indexOf(v) < 4);
-  let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
+export default function MainBookmarks () {
+  let bookmarks = JSON.parse(localStorage.getItem('bookmark'));
+  let newArr = bookmarks.filter(v => bookmarks.indexOf(v) < 4);
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -28,7 +29,7 @@ export default function MainProducts ({ products }) {
   return (
     <section id="wrapper">
 
-      <H2>상품 리스트</H2>
+      <H2>북마크 리스트</H2>
 
       <Section>
       <ItemCard newArr={newArr}/>

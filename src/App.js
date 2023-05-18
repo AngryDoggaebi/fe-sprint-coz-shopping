@@ -8,7 +8,11 @@ import Router from './components/Router';
 
 function App() {
 
-  let [products, setProducts] = useState( JSON.parse(localStorage.getItem("data")) );
+  let [products, setProducts] = useState(
+    localStorage.getItem('data') 
+    ? JSON.parse(localStorage.getItem("data"))
+    : []
+  );
   
 
   useEffect(() => {

@@ -10,10 +10,10 @@
 header {
   display: flex;
   justify-content: space-between;
-  padding-left: 78px;
-  padding-right: 78px;
-  padding-top: 30px;
-  padding-bottom: 30px; 
+  padding-left: 127px;
+  padding-right: 127px;
+  padding-top: 20px;
+  padding-bottom: 20px; 
   box-shadow: 0 0 10px rgb(186, 186, 186);
 }
 
@@ -37,8 +37,8 @@ header {
   width: 18px;
   height: 18px;
   position: absolute;
-  right: 87px;
-  top: 61px;
+  right: 134px;
+  top: 49px;
   transform: rotate(45deg);
   box-shadow: -5px -4px 8px -3px rgb(186, 186, 186);
   z-index: 2;
@@ -58,15 +58,14 @@ header {
   display: flex;
   flex-flow: column;
   position: absolute;
-  right: 32px;
-  top: 70px;
+  right: 84px;
+  top: 58px;
 }
 
 
 #wrapper{
   height: auto;
   min-height: 100%;
-  padding-bottom: 58px;
 }
 
 footer{

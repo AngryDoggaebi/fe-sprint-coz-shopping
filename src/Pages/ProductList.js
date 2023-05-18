@@ -37,9 +37,9 @@ let Section = styled.section`
   flex-flow: row;
   justify-content: start;
   flex-wrap: wrap;
-  margin-left: 76px;
-  margin-right: 76px;
-  gap: 66px 48px;
+  margin-left: 127px;
+  margin-right: 127px;
+  gap: 60px 48px;
   margin-top: 26.5px;
   margin-bottom: 78px;
 `
