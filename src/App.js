@@ -13,6 +13,10 @@ function App() {
     ? JSON.parse(localStorage.getItem("data"))
     : []
   );
+
+  localStorage.getItem('bookmark')
+  ? localStorage.getItem('bookmark')
+  : localStorage.setItem('bookmark', JSON.stringify([]))
   
 
   useEffect(() => {
