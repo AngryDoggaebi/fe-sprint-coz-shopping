@@ -2,6 +2,9 @@ import styled from "styled-components"
 import StarIconGray from "../img/StarIcon_Gray"
 import { useEffect, useState } from "react"
 import StarIcon from "../img/StarIcon"
+import { useDispatch, useSelector } from "react-redux"
+import { changeModalState, setImgUrl } from "../store"
+
 
 let ProductImg = styled.img`
   width: 234px;
@@ -32,7 +35,7 @@ let Star = styled.i`
 `
 
 
-export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {  
+export default function ItemCard ({ newArr }) {  
 
   let [bookmarks, setBookmarks] = useState(
     localStorage.getItem('bookmark')
@@ -44,6 +47,9 @@ export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
   })
 
+  let modal = useSelector(state => state.modal.visible)
+  let dispatch = useDispatch()
+
   return newArr.map((v) => {
     return (
       <Card key={v.id}>
@@ -52,10 +58,12 @@ export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {
           src={ v.brand_image_url ? v.brand_image_url : v.image_url }
           onClick={()=>{
               modal 
-              ? setModal(false) 
-              : setModal(true);
+              ? dispatch(changeModalState(false))
+              : dispatch(changeModalState(true))
 
-              v.brand_image_url ? setImageUrl(v.brand_image_url) : setImageUrl(v.image_url);
+              v.brand_image_url 
+              ? dispatch(setImgUrl(v.brand_image_url))  
+              : dispatch(setImgUrl(v.image_url))
           }}
         />
         

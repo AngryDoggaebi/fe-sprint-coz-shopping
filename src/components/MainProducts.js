@@ -19,9 +19,10 @@ let Section = styled.section`
   margin-top: 10px;
 `
 
-export default function MainProducts ({ products, modal, setModal, imageUrl, setImageUrl }) {
+export default function MainProducts ({ products }) {
   let newArr = products.filter(v => products.indexOf(v) < 4);
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
+  let modal = useSelector(state => state.modal.visible)
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -31,13 +32,13 @@ export default function MainProducts ({ products, modal, setModal, imageUrl, set
     <section id="wrapper">
 
       {
-      modal ? <ImageModal imageUrl={ imageUrl } setModal={ setModal } newArr={newArr}/> : null
+      modal ? <ImageModal newArr={newArr}/> : null
       }
 
       <H2>상품 리스트</H2>
 
       <Section>
-      <ItemCard newArr={newArr} modal={modal} setModal={setModal} setImageUrl={setImageUrl}/>
+      <ItemCard newArr={newArr} />
       </Section>
     
     </section>

@@ -1,4 +1,7 @@
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
+import { changeModalState } from "../store";
+
 
 let Parent = styled.div`
   z-index: 3;
@@ -40,13 +43,15 @@ let ModalImg = styled.img`
   border-radius: 12px;
 `
 
-export default function ImageModal({ imageUrl, setModal, newArr }){
-
+export default function ImageModal({ newArr }){
+  
+  let dispatch = useDispatch()
+  let imageUrl = useSelector(state => state.imageUrl.url)
   let info = newArr.filter(v => v.image_url === imageUrl || v.brand_image_url === imageUrl)
   
   return(
     
-    <Parent onClick={ ()=>{ setModal(false) } }>
+    <Parent onClick={ ()=>{ dispatch(changeModalState(false)) } }>
       <Children>
         <Title>{info[0].title ? info[0].title : info[0].brand_name}</Title>
         <ModalImg src={ imageUrl }/>
