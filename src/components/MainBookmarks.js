@@ -1,8 +1,6 @@
 import styled from "styled-components"
 import ItemCard from "./ItemCard";
 import { useEffect } from "react";
-import ImageModal from "./ImageModal";
-import { useSelector } from "react-redux";
 
 let H2 = styled.h2`
   display: flex;

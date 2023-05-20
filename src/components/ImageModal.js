@@ -1,28 +1,35 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { changeModalState } from "../store";
+import StarIcon from "../img/StarIcon"
+import StarIconGray from "../img/StarIcon_Gray"
 
 
-let Parent = styled.div`
+let Bg = styled.div`
   z-index: 3;
   position: fixed;
   top:0; left: 0; bottom: 0; right: 0;
   background: rgba(0, 0, 0, 0.8);
-
 `
-let Children = styled.div`
-  display: flex;
-  position: relative;
+let Parent = styled.div`
+  height: 330px;
+    width: 384px;
+    display: flex;
+    flex-flow: column;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 `
 let Title = styled.span`
+
   position: absolute;
+  bottom: 13px;
+  left: 55px;
+
   z-index: 3;
-  top: 28rem;
-  left: 40rem;
-  transform: translate(-50%, 50%);
 
   display: inline-block;
-  height: 20px;
   width: 200px;
 
   color: white;
@@ -36,11 +43,14 @@ let ModalImg = styled.img`
   display: flex;
   position: absolute;
   z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, 50%);
 
   border-radius: 12px;
+`
+let Icon = styled.i`
+  position: absolute;
+  z-index: 3;
+  bottom: 12px;
+  left: 21px;
 `
 
 export default function ImageModal({ newArr }){
@@ -48,15 +58,21 @@ export default function ImageModal({ newArr }){
   let dispatch = useDispatch()
   let imageUrl = useSelector(state => state.imageUrl.url)
   let info = newArr.filter(v => v.image_url === imageUrl || v.brand_image_url === imageUrl)
+  let bookmarks = JSON.parse(localStorage.getItem('bookmark'));
   
   return(
     
-    <Parent onClick={ ()=>{ dispatch(changeModalState(false)) } }>
-      <Children>
+    <Bg onClick={ ()=>{ dispatch(changeModalState(false)) } }>
+      <Parent className="parent">
+        <Icon>{
+          bookmarks.filter(v => v.id === info[0].id).length === 0
+          ? <StarIconGray/>
+          : <StarIcon/>
+        }</Icon>
         <Title>{info[0].title ? info[0].title : info[0].brand_name}</Title>
         <ModalImg src={ imageUrl }/>
-      </Children>  
-    </Parent>
+      </Parent>  
+    </Bg>
     
   );
 }

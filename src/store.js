@@ -20,12 +20,24 @@ let imageUrl = createSlice({
   }
 })
 
+let setBookmarkIcon = createSlice({
+  name : 'setBookmarkIcon',
+  initialState: {'setBookmarkIcon' : false},
+  reducers: {
+    changeIconState(state, trueOrFalse){
+      state.visible = trueOrFalse.payload
+    }
+  }
+})
+
 export let { changeModalState } = modal.actions
 export let { setImgUrl } = imageUrl.actions
+export let { changeIconState } = setBookmarkIcon.actions
 
 export default configureStore({
   reducer: { 
     modal : modal.reducer,
-    imageUrl : imageUrl.reducer
+    imageUrl : imageUrl.reducer,
+    setBookmarkIcon : setBookmarkIcon.reducer
   }
 }) 

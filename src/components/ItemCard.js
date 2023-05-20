@@ -71,7 +71,7 @@ export default function ItemCard ({ newArr }) {
           let copy = [...bookmarks];
           bookmarks.filter(x => x.id === v.id).length !== 0  
           ? setBookmarks(copy.filter(x => x.id !== v.id))
-          : setBookmarks([...bookmarks, v]) 
+          : setBookmarks([...bookmarks, v]);        
         }}>
           { 
             bookmarks.filter(x => x.id === v.id).length !== 0  
