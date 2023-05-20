@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { changeModalState } from "../store";
 import StarIcon from "../img/StarIcon"
 import StarIconGray from "../img/StarIcon_Gray"
+import XIcon from "../img/XIcon";
 
 
 let Bg = styled.div`
@@ -46,11 +47,17 @@ let ModalImg = styled.img`
 
   border-radius: 12px;
 `
-let Icon = styled.i`
+let Star = styled.i`
   position: absolute;
   z-index: 3;
   bottom: 12px;
   left: 21px;
+`
+let X = styled.i`
+  position: absolute;
+  z-index: 3;
+  top: 17px;
+  right: 21px;
 `
 
 export default function ImageModal({ newArr }){
@@ -61,17 +68,25 @@ export default function ImageModal({ newArr }){
   let bookmarks = JSON.parse(localStorage.getItem('bookmark'));
   
   return(
-    
-    <Bg onClick={ ()=>{ dispatch(changeModalState(false)) } }>
+    <Bg>
+
       <Parent className="parent">
-        <Icon>{
+
+        <X onClick={ ()=> { dispatch(changeModalState(false)) }}>
+          <XIcon/>
+        </X>
+        <Star>
+          {
           bookmarks.filter(v => v.id === info[0].id).length === 0
           ? <StarIconGray/>
           : <StarIcon/>
-        }</Icon>
+          }
+        </Star>
         <Title>{info[0].title ? info[0].title : info[0].brand_name}</Title>
         <ModalImg src={ imageUrl }/>
+
       </Parent>  
+
     </Bg>
     
   );
