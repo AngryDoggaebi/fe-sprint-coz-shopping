@@ -19,8 +19,7 @@ let Section = styled.section`
   margin-top: 10px;
 `
 
-export default function MainProducts ({ products }) {
-  let newArr = products.filter(v => products.indexOf(v) < 4);
+export default function MainProducts ({ newArr }) {
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
   let modal = useSelector(state => state.modal.visible)
 
@@ -30,10 +29,6 @@ export default function MainProducts ({ products }) {
 
   return (
     <section id="wrapper">
-
-      {
-      modal ? <ImageModal newArr={newArr}/> : null
-      }
 
       <H2>상품 리스트</H2>
 
