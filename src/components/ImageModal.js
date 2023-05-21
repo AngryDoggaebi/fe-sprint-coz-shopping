@@ -4,7 +4,8 @@ import { changeModalState, setBookmarksList } from "../store";
 import StarIcon from "../img/StarIcon"
 import StarIconGray from "../img/StarIcon_Gray"
 import XIcon from "../img/XIcon";
-import { useEffect } from "react";
+import  {  ToastContainer ,  toast  }  from  'react-toastify' ; 
+import  'react-toastify/dist/ReactToastify.css' ;
 
 let Bg = styled.div`
   z-index: 3;
@@ -66,6 +67,9 @@ export default function ImageModal({ newArr }){
   let imageUrl = useSelector(state => state.imageUrl.url)
   let info = newArr.filter(v => v.image_url === imageUrl || v.brand_image_url === imageUrl)
   let bookmarks = JSON.parse(localStorage.getItem('bookmark'));
+
+  const add = () => toast("추가되었습니다");
+  const remove = () => toast("삭제되었습니다");
   
   return(
     <Bg>
@@ -77,9 +81,11 @@ export default function ImageModal({ newArr }){
         </X>
         <Star onClick={()=>{
           let copy = [...bookmarks];
-          bookmarks.filter(x => x.id === info[0].id).length !== 0  
-          ? dispatch(setBookmarksList(copy.filter(x => x.id !== info[0].id)))
-          : dispatch(setBookmarksList([...bookmarks, info[0]])) 
+          return(
+            bookmarks.filter(x => x.id === info[0].id).length !== 0  
+            ? dispatch(setBookmarksList(copy.filter(x => x.id !== info[0].id)), remove())
+            : dispatch(setBookmarksList([...bookmarks, info[0]]), add()) 
+          )   
         }}>
           {
           bookmarks.filter(x => x.id === info[0].id).length === 0
