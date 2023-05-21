@@ -4,8 +4,9 @@ import { changeModalState, setBookmarksList } from "../store";
 import StarIcon from "../img/StarIcon"
 import StarIconGray from "../img/StarIcon_Gray"
 import XIcon from "../img/XIcon";
-import  {  ToastContainer ,  toast  }  from  'react-toastify' ; 
+import  {  toast  }  from  'react-toastify' ; 
 import  'react-toastify/dist/ReactToastify.css' ;
+import { useEffect } from "react";
 
 let Bg = styled.div`
   z-index: 3;
@@ -63,14 +64,18 @@ let X = styled.i`
 
 export default function ImageModal({ newArr }){
   
-  let dispatch = useDispatch()
-  let imageUrl = useSelector(state => state.imageUrl.url)
-  let info = newArr.filter(v => v.image_url === imageUrl || v.brand_image_url === imageUrl)
-  let bookmarks = JSON.parse(localStorage.getItem('bookmark'));
+  let dispatch = useDispatch();
+  let imageUrl = useSelector(state => state.imageUrl.url);
+  let info = newArr.filter(v => v.image_url === imageUrl || v.brand_image_url === imageUrl);
+  let bookmarks = useSelector(state => state.bookmarks);
 
   const add = () => toast("추가되었습니다");
   const remove = () => toast("삭제되었습니다");
-  
+
+  useEffect(()=>{
+    localStorage.setItem('bookmark', JSON.stringify(bookmarks));
+  })
+
   return(
     <Bg>
 
@@ -88,8 +93,8 @@ export default function ImageModal({ newArr }){
           )   
         }}>
           {
-          bookmarks.filter(x => x.id === info[0].id).length === 0
-          ? <StarIconGray/> : <StarIcon/>
+            bookmarks.filter(x => x.id === info[0].id).length === 0
+            ? <StarIconGray/> : <StarIcon/>
           }
         </Star>
         <Title>{info[0].title ? info[0].title : info[0].brand_name}</Title>
