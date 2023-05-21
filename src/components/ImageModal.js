@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
-import { changeModalState } from "../store";
+import { changeModalState, setBookmarksList } from "../store";
 import StarIcon from "../img/StarIcon"
 import StarIconGray from "../img/StarIcon_Gray"
 import XIcon from "../img/XIcon";
-
+import { useEffect } from "react";
 
 let Bg = styled.div`
   z-index: 3;
@@ -75,11 +75,15 @@ export default function ImageModal({ newArr }){
         <X onClick={ ()=> { dispatch(changeModalState(false)) }}>
           <XIcon/>
         </X>
-        <Star>
+        <Star onClick={()=>{
+          let copy = [...bookmarks];
+          bookmarks.filter(x => x.id === info[0].id).length !== 0  
+          ? dispatch(setBookmarksList(copy.filter(x => x.id !== info[0].id)))
+          : dispatch(setBookmarksList([...bookmarks, info[0]])) 
+        }}>
           {
-          bookmarks.filter(v => v.id === info[0].id).length === 0
-          ? <StarIconGray/>
-          : <StarIcon/>
+          bookmarks.filter(x => x.id === info[0].id).length === 0
+          ? <StarIconGray/> : <StarIcon/>
           }
         </Star>
         <Title>{info[0].title ? info[0].title : info[0].brand_name}</Title>
