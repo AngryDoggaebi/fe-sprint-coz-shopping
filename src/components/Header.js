@@ -2,9 +2,9 @@ import CozShopping from "../img/CozShopping"
 import Codestateslogo from "../img/Codestateslogo"
 import Hamberger from "../img/Hamberger"
 import Gift from "../img/Gift"
-import StarIcon from "../img/StarIcon"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import HeaderStarIcon from "../img/HeaderStarIcon"
 
 export default function Header(){
 
@@ -41,7 +41,7 @@ function HamModal () {
       <div className="division-line"></div>
       <Link to="/products/list" className="modalList"><Gift/> 상품 리스트 페이지</Link>
       <div className="division-line"></div>
-      <Link to="/bookmark" className="modalList"><StarIcon/> 북마크 페이지</Link>
+      <Link to="/bookmark" className="modalList"><HeaderStarIcon/> 북마크 페이지</Link>
     </div>
     </>
 
