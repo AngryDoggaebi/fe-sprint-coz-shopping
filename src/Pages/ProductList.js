@@ -16,7 +16,7 @@ let Img = styled.img`
 let Span = styled.span`
   font-weight: ${ props => props.fw };
   text-decoration: ${ props => props.td };
-  color: ${ props => props.fc }
+  color: ${ props => props.fc };
 `
 let Li = styled.li`
   display: flex;
