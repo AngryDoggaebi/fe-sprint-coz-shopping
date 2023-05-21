@@ -2,6 +2,8 @@ import styled from "styled-components"
 import StarIconGray from "../img/StarIcon_Gray"
 import { useEffect, useState } from "react"
 import StarIcon from "../img/StarIcon"
+import  {  ToastContainer ,  toast  }  from  'react-toastify' ; 
+import  'react-toastify/dist/ReactToastify.css' ;
 
 let ProductImg = styled.img`
   width: 234px;
@@ -34,6 +36,9 @@ let Star = styled.i`
 
 export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {  
 
+  const add = () => toast("추가되었습니다");
+  const remove = () => toast("삭제되었습니다")
+
   let [bookmarks, setBookmarks] = useState(
     localStorage.getItem('bookmark')
     ? JSON.parse(localStorage.getItem('bookmark'))
@@ -48,28 +53,36 @@ export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {
     return (
       <Card key={v.id}>
 
+        <ToastContainer
+          position="bottom-right"
+        />
+
         <ProductImg 
           src={ v.brand_image_url ? v.brand_image_url : v.image_url }
           onClick={()=>{
               modal 
-              ? setModal(false) 
+              ? setModal(false)
               : setModal(true);
 
               v.brand_image_url ? setImageUrl(v.brand_image_url) : setImageUrl(v.image_url);
           }}
         />
         
-        <Star onClick={()=>{ 
+        <Star onClick={()=>{
           let copy = [...bookmarks];
-          bookmarks.filter(x => x.id === v.id).length !== 0  
-          ? setBookmarks(copy.filter(x => x.id !== v.id))
-          : setBookmarks([...bookmarks, v]) 
+          return(
+            bookmarks.filter(x => x.id === v.id).length !== 0  
+            ? (setBookmarks(copy.filter(x => x.id !== v.id)), remove())
+            : (setBookmarks([...bookmarks, v]), add())
+          ) 
+          
         }}>
           { 
             bookmarks.filter(x => x.id === v.id).length !== 0  
             ? <StarIcon/> : <StarIconGray/> 
           }
         </Star>
+        
 
         <ProductInfo jc="space-between" fw="bold">
           <Info>{ v.brand_name ? v.brand_name : v.title }</Info>
