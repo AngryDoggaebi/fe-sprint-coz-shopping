@@ -13,6 +13,11 @@ let Img = styled.img`
   width: 82px;
   height: 82px;
 `
+let Span = styled.span`
+  font-weight: ${ props => props.fw };
+  text-decoration: ${ props => props.td };
+  color: ${ props => props.fc }
+`
 let Li = styled.li`
   display: flex;
   justify-content: center;
@@ -24,15 +29,6 @@ let Ul = styled.ul`
   flex-flow: column;
   gap: 6.5px;
   cursor: pointer;
-
-    .productNav{
-      
-    }
-
-    .focused{
-      font-weight: bold;
-      text-decoration: underline;
-    }
 `
 let Section = styled.section`
   display: flex;
@@ -72,15 +68,21 @@ export default function ProductList ({ products }) {
       <Li>
         {navlist.map((v, i) => {
           return(
-            <Ul key={i} className={ v.title===current ? 'focused productNav' : 'productNav' } 
+            <Ul key={i} 
               onClick={()=>{ 
                 setNewArr(v.filter);
                 setCurrent(v.title);
               }}
             >
-            <Img src={ v.img } alt={ v.title}/>
-            <span> { v.title } </span>
-          </Ul>
+              <Img src={ v.img } alt={ v.title }/>
+              <Span 
+                fw={ v.title===current ? 'bold' : '' } 
+                td={ v.title===current ? 'underline' : '' }
+                fc={ v.title===current ? '#412DD4' : '' }
+              > 
+                { v.title }  
+              </Span>
+            </Ul>
 
           );
         })}
