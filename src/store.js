@@ -20,13 +20,27 @@ let imageUrl = createSlice({
   }
 })
 
+let bookmarks = createSlice({
+  name: 'bookmarks',
+  initialState: localStorage.getItem('bookmark')
+    ? JSON.parse(localStorage.getItem('bookmark'))
+    : [],
+  reducers: {
+    setBookmarksList(state, bookmark){
+      return bookmark.payload
+    }
+  }
+})
+
 
 export let { changeModalState } = modal.actions
 export let { setImgUrl } = imageUrl.actions
+export let { setBookmarksList } = bookmarks.actions
 
 export default configureStore({
   reducer: { 
     modal : modal.reducer,
     imageUrl : imageUrl.reducer,
+    bookmarks : bookmarks.reducer,
   }
 }) 

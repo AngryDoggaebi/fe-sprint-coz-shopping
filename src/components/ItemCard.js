@@ -1,10 +1,9 @@
 import styled from "styled-components"
 import StarIconGray from "../img/StarIcon_Gray"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import StarIcon from "../img/StarIcon"
 import { useDispatch, useSelector } from "react-redux"
-import { changeModalState, setImgUrl } from "../store"
-
+import { changeModalState, setBookmarksList, setImgUrl } from "../store"
 
 let ProductImg = styled.img`
   width: 234px;
@@ -37,11 +36,7 @@ let Star = styled.i`
 
 export default function ItemCard ({ newArr }) {  
 
-  let [bookmarks, setBookmarks] = useState(
-    localStorage.getItem('bookmark')
-    ? JSON.parse(localStorage.getItem('bookmark'))
-    : []
-  );
+  let bookmarks = useSelector(state => state.bookmarks)
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -70,8 +65,8 @@ export default function ItemCard ({ newArr }) {
         <Star onClick={()=>{ 
           let copy = [...bookmarks];
           bookmarks.filter(x => x.id === v.id).length !== 0  
-          ? setBookmarks(copy.filter(x => x.id !== v.id))
-          : setBookmarks([...bookmarks, v]);        
+          ? dispatch(setBookmarksList(copy.filter(x => x.id !== v.id)))
+          : dispatch(setBookmarksList([...bookmarks, v]))    
         }}>
           { 
             bookmarks.filter(x => x.id === v.id).length !== 0  
