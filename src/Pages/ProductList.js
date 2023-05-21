@@ -6,6 +6,8 @@ import allImg from '../img/all.png';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import ItemCard from '../components/ItemCard';
+import ImageModal from '../components/ImageModal';
+import { useSelector } from 'react-redux';
 
 let Img = styled.img`
   width: 82px;
@@ -56,6 +58,7 @@ export default function ProductList ({ products }) {
   ];
 
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
+  let modal = useSelector(state => state.modal.visible);
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -63,6 +66,9 @@ export default function ProductList ({ products }) {
   
   return(
     <div id='wrapper'>
+
+      { modal ? <ImageModal newArr={ newArr }/> : null }
+
       <Li>
         {navlist.map((v, i) => {
           return(

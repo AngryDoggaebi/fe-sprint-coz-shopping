@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import ItemCard from "../components/ItemCard"
 import styled from "styled-components"
+import { useSelector } from 'react-redux';
+import ImageModal from "../components/ImageModal";
 
 
 let Section = styled.section`
@@ -17,6 +19,7 @@ let Section = styled.section`
 
 export default function Bookmark ( ) {
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
+  let modal = useSelector(state => state.modal.visible);
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -24,6 +27,9 @@ export default function Bookmark ( ) {
 
   return (
     <div id='wrapper'>
+
+      { modal ? <ImageModal newArr={ bookmarks }/> : null }
+
       <Section>
         <ItemCard newArr={ bookmarks } /> 
       </Section>

@@ -2,6 +2,7 @@ import styled from "styled-components"
 import ItemCard from "./ItemCard";
 import { useEffect, useState } from "react";
 import ImageModal from "./ImageModal";
+import { useSelector } from "react-redux";
 
 let H2 = styled.h2`
   display: flex;
@@ -18,11 +19,9 @@ let Section = styled.section`
   margin-top: 10px;
 `
 
-export default function MainProducts ({ products }) {
-  let newArr = products.filter(v => products.indexOf(v) < 4);
+export default function MainProducts ({ newArr }) {
   let bookmarks = JSON.parse(localStorage.getItem('bookmark')) ;
-  let [modal, setModal] = useState(false);
-  let [imageUrl, setImageUrl] = useState('');
+  let modal = useSelector(state => state.modal.visible)
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
@@ -31,14 +30,10 @@ export default function MainProducts ({ products }) {
   return (
     <section id="wrapper">
 
-      {
-      modal ? <ImageModal imageUrl={ imageUrl } setModal={ setModal }/> : null
-      }
-
       <H2>상품 리스트</H2>
 
       <Section>
-      <ItemCard newArr={newArr} modal={modal} setModal={setModal} setImageUrl={setImageUrl}/>
+      <ItemCard newArr={newArr} />
       </Section>
     
     </section>

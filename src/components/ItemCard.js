@@ -1,9 +1,11 @@
 import styled from "styled-components"
 import StarIconGray from "../img/StarIcon_Gray"
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import StarIcon from "../img/StarIcon"
 import  {  ToastContainer ,  toast  }  from  'react-toastify' ; 
 import  'react-toastify/dist/ReactToastify.css' ;
+import { useDispatch, useSelector } from "react-redux"
+import { changeModalState, setBookmarksList, setImgUrl } from "../store"
 
 let ProductImg = styled.img`
   width: 234px;
@@ -34,20 +36,20 @@ let Star = styled.i`
 `
 
 
-export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {  
+export default function ItemCard ({ newArr }) {  
+
 
   const add = () => toast("추가되었습니다");
-  const remove = () => toast("삭제되었습니다")
+  const remove = () => toast("삭제되었습니다");
 
-  let [bookmarks, setBookmarks] = useState(
-    localStorage.getItem('bookmark')
-    ? JSON.parse(localStorage.getItem('bookmark'))
-    : []
-  );
+  let bookmarks = useSelector(state => state.bookmarks);
 
   useEffect(()=>{
     localStorage.setItem('bookmark', JSON.stringify(bookmarks));
   })
+
+  let modal = useSelector(state => state.modal.visible)
+  let dispatch = useDispatch()
 
   return newArr.map((v) => {
     return (
@@ -61,10 +63,12 @@ export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {
           src={ v.brand_image_url ? v.brand_image_url : v.image_url }
           onClick={()=>{
               modal 
-              ? setModal(false)
-              : setModal(true);
+              ? dispatch(changeModalState(false))
+              : dispatch(changeModalState(true))
 
-              v.brand_image_url ? setImageUrl(v.brand_image_url) : setImageUrl(v.image_url);
+              v.brand_image_url 
+              ? dispatch(setImgUrl(v.brand_image_url))  
+              : dispatch(setImgUrl(v.image_url))
           }}
         />
         
@@ -72,11 +76,10 @@ export default function ItemCard ({ newArr, modal, setModal, setImageUrl }) {
           let copy = [...bookmarks];
           return(
             bookmarks.filter(x => x.id === v.id).length !== 0  
-            ? (setBookmarks(copy.filter(x => x.id !== v.id)), remove())
-            : (setBookmarks([...bookmarks, v]), add())
-          ) 
-          
-        }}>
+            ? (dispatch(setBookmarksList(copy.filter(x => x.id !== v.id))), remove())
+            : (dispatch(setBookmarksList([...bookmarks, v])), add())  
+            )   
+          }}>
           { 
             bookmarks.filter(x => x.id === v.id).length !== 0  
             ? <StarIcon/> : <StarIconGray/> 
