@@ -78,8 +78,8 @@ export default function ItemCard ({ newArr }) {
             bookmarks.filter(x => x.id === v.id).length !== 0  
             ? (dispatch(setBookmarksList(copy.filter(x => x.id !== v.id))), remove())
             : (dispatch(setBookmarksList([...bookmarks, v])), add())  
-            )   
-          }}>
+          )   
+        }}>
           { 
             bookmarks.filter(x => x.id === v.id).length !== 0  
             ? <StarIcon/> : <StarIconGray/> 
