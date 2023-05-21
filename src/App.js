@@ -4,7 +4,12 @@ import Header from './components/Header';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Router from './components/Router';
+import styled from 'styled-components';
 
+let Div = styled.div`
+  overflow-x: hidden; 
+  overflow-y: auto;
+`
 
 function App() {
 
@@ -34,11 +39,11 @@ function App() {
 
   return (
     
-    <div className="App">
+    <Div className="App">
       <Header />
       <Router products={ products }/>
       <Footer />
-    </div>
+    </Div>
   );
 }
 
