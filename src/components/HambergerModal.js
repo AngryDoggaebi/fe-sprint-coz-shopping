@@ -1,8 +1,8 @@
-import Gift from "../img/Gift";
-import HeaderStarIcon from "../img/HeaderStarIcon";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
+import Gift from '../img/Gift';
+import HeaderStarIcon from '../img/HeaderStarIcon';
 
-export default function HambergerModal () {
+export default function HamModal () {
   return (
     <>
     <div className='triangle'></div>
