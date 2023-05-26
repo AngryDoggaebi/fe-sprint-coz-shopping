@@ -7,21 +7,6 @@
   cursor: pointer;
 }
 
-header {
-  display: flex;
-  justify-content: space-between;
-  padding-left: 127px;
-  padding-right: 127px;
-  padding-top: 20px;
-  padding-bottom: 20px; 
-  box-shadow: 0 0 10px rgb(186, 186, 186);
-}
-
-#logo_cozShopping{
-  display: flex;
-  gap: 12px;
-}
-
 .division-line {
   border-top: 1px solid #f0f0f0;
 }
