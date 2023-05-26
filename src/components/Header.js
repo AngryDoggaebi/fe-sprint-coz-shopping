@@ -28,8 +28,7 @@ export default function Header(){
     <>
     <HeaderInfo>
       <Logo>
-        {/* <Link to='/'> <Codestateslogo/> </Link> */}
-        <Codestateslogo/>
+        <Link to='/'> <Codestateslogo/> </Link>
         <CozShopping/> 
       </Logo>
       
