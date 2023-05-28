@@ -63,5 +63,6 @@
     "prop-types": "^15.8.1",
     "storybook": "^7.0.17",
     "webpack": "^5.84.1"
-  }
+  },
+  "homepage": "https://AngryDoggaebi.github.io/fe-sprint-coz-shopping-demo"
 }
