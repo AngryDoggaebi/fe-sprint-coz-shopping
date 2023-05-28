@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/fe-sprint-coz-shopping-demo/static/css/main.78e29183.css",
-    "main.js": "/fe-sprint-coz-shopping-demo/static/js/main.db3767c6.js",
-    "static/js/787.89b1fe06.chunk.js": "/fe-sprint-coz-shopping-demo/static/js/787.89b1fe06.chunk.js",
-    "static/media/exhibition.png": "/fe-sprint-coz-shopping-demo/static/media/exhibition.543874d81c91d7cd4a1d.png",
-    "static/media/all.png": "/fe-sprint-coz-shopping-demo/static/media/all.bb9921febb60d97d4be7.png",
-    "static/media/brand.png": "/fe-sprint-coz-shopping-demo/static/media/brand.21230f0b7d7ae3fa1009.png",
-    "index.html": "/fe-sprint-coz-shopping-demo/index.html",
-    "main.78e29183.css.map": "/fe-sprint-coz-shopping-demo/static/css/main.78e29183.css.map",
-    "main.db3767c6.js.map": "/fe-sprint-coz-shopping-demo/static/js/main.db3767c6.js.map",
-    "787.89b1fe06.chunk.js.map": "/fe-sprint-coz-shopping-demo/static/js/787.89b1fe06.chunk.js.map"
+    "main.css": "/fe-sprint-coz-shopping/static/css/main.78e29183.css",
+    "main.js": "/fe-sprint-coz-shopping/static/js/main.f60ff034.js",
+    "static/js/787.89b1fe06.chunk.js": "/fe-sprint-coz-shopping/static/js/787.89b1fe06.chunk.js",
+    "static/media/exhibition.png": "/fe-sprint-coz-shopping/static/media/exhibition.543874d81c91d7cd4a1d.png",
+    "static/media/all.png": "/fe-sprint-coz-shopping/static/media/all.bb9921febb60d97d4be7.png",
+    "static/media/brand.png": "/fe-sprint-coz-shopping/static/media/brand.21230f0b7d7ae3fa1009.png",
+    "index.html": "/fe-sprint-coz-shopping/index.html",
+    "main.78e29183.css.map": "/fe-sprint-coz-shopping/static/css/main.78e29183.css.map",
+    "main.f60ff034.js.map": "/fe-sprint-coz-shopping/static/js/main.f60ff034.js.map",
+    "787.89b1fe06.chunk.js.map": "/fe-sprint-coz-shopping/static/js/787.89b1fe06.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.78e29183.css",
-    "static/js/main.db3767c6.js"
+    "static/js/main.f60ff034.js"
   ]
 }
