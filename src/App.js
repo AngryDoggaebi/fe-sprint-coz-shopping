@@ -18,15 +18,18 @@ function App() {
     ? JSON.parse(localStorage.getItem("data"))
     : []
   );
-
+  
   localStorage.getItem('bookmark')
   ? localStorage.getItem('bookmark')
   : localStorage.setItem('bookmark', JSON.stringify([]))
   
-
+  
   useEffect(() => {
     if (!localStorage.getItem("data")) {
-      axios.get('http://cozshopping.codestates-seb.link/api/v1/products?')
+      // 서버에서 api 받아오기
+      // axios.get('http://cozshopping.codestates-seb.link/api/v1/products?')
+      // dummy data로 public 폴더에서 api 받아오기
+      axios.get('http://localhost:3000/fe-sprint-coz-shopping/dummy/datalist.json') 
         .then((result) => {
           localStorage.setItem("data", JSON.stringify(result.data));
           setProducts(result.data);
