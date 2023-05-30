@@ -13,7 +13,7 @@ let Section = styled.section`
   justify-content: start;
   margin-left: 127px;
   margin-right: 127px;
-  gap: 66px 48px;
+  gap: 66px 47px;
   margin-top: 10px;
   margin-bottom: 78px;
 `
