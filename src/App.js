@@ -27,7 +27,7 @@ function App() {
   useEffect(() => {
     if (!localStorage.getItem("data")) {
       // 서버에서 api 받아오기
-      // axios.get('http://cozshopping.codestates-seb.link/api/v1/products?')
+      // axios.get('http://cozshopping.codestates-seb.link/api/v1/products')
       // dummy data로 public 폴더에서 api 받아오기
       axios.get('http://localhost:3000/fe-sprint-coz-shopping/dummy/datalist.json') 
         .then((result) => {
