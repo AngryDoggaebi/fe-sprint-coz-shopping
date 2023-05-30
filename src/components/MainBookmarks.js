@@ -15,16 +15,21 @@ let Section = styled.section`
   margin-right: 127px;
   gap: 66px 47px;
   margin-top: 10px;
-  margin-bottom: 78px;
+  margin-bottom: 10%;
+`
+let P = styled.p`
+  margin-top: 80px;
+  margin-bottom: 80px;
+
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  width: 100%;
 `
 
 export default function MainBookmarks () {
   let bookmarks = JSON.parse(localStorage.getItem('bookmark'));
   let newArr = bookmarks.filter(v => bookmarks.indexOf(v) < 4);
-
-  useEffect(()=>{
-    localStorage.setItem('bookmark', JSON.stringify(bookmarks));
-  })
 
   return (
     <section id="wrapper">
@@ -32,7 +37,12 @@ export default function MainBookmarks () {
       <H2>북마크 리스트</H2>
 
       <Section>
-      <ItemCard newArr={newArr}/>
+        {
+          newArr.length === 0 
+          ? <P>북마크한 상품이 없습니다</P>
+          : <ItemCard newArr={newArr}/>
+        }
+      
       </Section>
     
     </section>
