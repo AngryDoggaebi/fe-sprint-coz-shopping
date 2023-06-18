@@ -92,10 +92,10 @@ https://angrydoggaebi.github.io/fe-sprint-coz-shopping/
 ### 북마크 페이지
 
 <img width="1352" alt="스크린샷 2023-05-29 오전 12 31 02" src="https://github.com/AngryDoggaebi/fe-sprint-coz-shopping/assets/120698922/c7cf3e57-f4d5-48ae-8f7a-69d44b21f5d6">
-<img width="1352" alt="스크린샷 2023-05-29 오전 12 31 02" src="https://github.com/AngryDoggaebi/fe-sprint-coz-shopping/assets/120698922/e9b5ed27-c9cd-4b38-b472-fbc6d0abb6ea">
+<img width="500" src="https://github.com/AngryDoggaebi/fe-sprint-coz-shopping/assets/120698922/e9b5ed27-c9cd-4b38-b472-fbc6d0abb6ea">
 
 ### 상품 모달 창
-<img width="500" alt="스크린샷 2023-05-29 오후 11 15 08" src="https://github.com/AngryDoggaebi/fe-sprint-coz-shopping/assets/120698922/bdf2447b-0a38-4577-ad17-70a102c7ff1f">
+<img width="1352" alt="스크린샷 2023-05-29 오후 11 15 08" src="https://github.com/AngryDoggaebi/fe-sprint-coz-shopping/assets/120698922/bdf2447b-0a38-4577-ad17-70a102c7ff1f">
 
 
 
